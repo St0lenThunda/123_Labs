@@ -1,0 +1,45 @@
+{
+  "pdf_output": "Build_or_Destroy_Guitar_Progression.pdf",
+  "midi_output": "Build_or_Destroy_Chorus.mid",
+    "title": "Build or Destroy",
+    "tempo": 120,
+    "midi_duration": 4,
+    "midi_volume": 80,
+    "midi_chords": {
+        "D": [62, 66, 69],
+        "C": [60, 64, 67],
+        "Bb": [58, 62, 65],
+        "A": [57, 61, 64]
+    },
+    "midi_progression": ["D", "C", "Bb", "A", "D", "C", "Bb", "A", "D"],
+    "sections": [
+        {
+            "title": "Verse 1: Relationship",
+            "content": "Verse Progression: D - C - Bb - A - D - C - Bb - A\nStrumming Pattern: ↓(rake) ↓ ↑ ↓(rake) ↑ ↓ ↑\n\nEach chord = 2 measures (8 beats)\n\nD Major (↓(rake) ↓ ↑ ↓(rake) ↑ ↓ ↑)\n\nLyrics: \n\"You always said we’d work it out, \nBut we’re stuck in these same old fights,\nAnother year goes by, \nAnd nothing ever feels right.\""
+        },
+        {
+            "title": "Chorus: Persistent Misconduct (Build or Destroy)",
+            "content": "Chorus Progression: D - C - Bb - A\nStrumming Pattern: ↓ ↓ ↑ (rake) ↑ ↓ ↑\n\nLyrics: \n\"Persistent misconduct, \nWe build or we destroy, \nThrough every word we say, \nAre we lost or are we found?\""
+        },
+        {
+            "title": "Verse 2: Culture",
+            "content": "Verse Progression: D - C - Bb - A - D - C - Bb - A\nStrumming Pattern: ↓(rake) ↓ ↑ ↓(rake) ↑ ↓ ↑\n\nEach chord = 2 measures (8 beats)\n\nD Major (↓(rake) ↓ ↑ ↓(rake) ↑ ↓ ↑)\n\nLyrics: \n\"We try to hold on to what's left, \nBut the chains still feel so tight,\nOld ways, they hold us down, \nAnd the fight’s still in our sight.\""
+        },
+        {
+            "title": "Chorus: Persistent Misconduct (Build or Destroy)",
+            "content": "Chorus Progression: D - C - Bb - A\nStrumming Pattern: ↓ ↓ ↑ (rake) ↑ ↓ ↑\n\nLyrics: \n\"Persistent misconduct, \nWe build or we destroy, \nThrough every word we say, \nAre we lost or are we found?\""
+        },
+        {
+            "title": "Verse 3: Politics",
+            "content": "Verse Progression: D - C - Bb - A - D - C - Bb - A\nStrumming Pattern: ↓(rake) ↓ ↑ ↓(rake) ↑ ↓ ↑\n\nEach chord = 2 measures (8 beats)\n\nD Major (↓(rake) ↓ ↑ ↓(rake) ↑ ↓ ↑)\n\nLyrics: \n\"The promises they make, \nNever seem to hold their weight,\nWe fight for what is ours, \nBut the truth is out of state.\""
+        },
+        {
+            "title": "Chorus: Persistent Misconduct (Build or Destroy)",
+            "content": "Chorus Progression: D - C - Bb - A\nStrumming Pattern: ↓ ↓ ↑ (rake) ↑ ↓ ↑\n\nLyrics: \n\"Persistent misconduct, \nWe build or we destroy, \nThrough every word we say, \nAre we lost or are we found?\""
+        },
+        {
+            "title": "Bridge Section",
+            "content": "Bridge Progression: Bb - A - D\nStrumming Pattern: ↑ ↑ ↓ (rake) ↑ ↓ ↑\n\nLyrics: \n\"We keep on breaking and bending, \nChasing shadows in the night,\nBut can we find a way to heal, \nAnd make the wrongs come right?\""
+        }
+    ]
+}
