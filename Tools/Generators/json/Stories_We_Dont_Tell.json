@@ -1,81 +1,108 @@
 {
-    "pdf_output": "Persistent_Misconduct_Stories_We_Dont_Tell.pdf",
-    "midi_output": "Persistent_Misconduct_Stories_We_Dont_Tell.mid",
-    "tempo": 136,
-    "midi_duration": 4,
-    "midi_volume": 80,
-    "midi_chords": {
-        "D": [
-            50,
-            57,
-            62
-        ],
-        "C": [
-            48,
-            55,
-            60
-        ],
-        "Bb": [
-            46,
-            53,
-            58
-        ],
-        "A": [
-            45,
-            52,
-            57
-        ],
-        "Bm": [
-            47,
-            54,
-            59
-        ],
-        "G": [
-            43,
-            50,
-            55
-        ]
-    },
-    "midi_progression": [
-        "D",
-        "D",
-        "C",
-        "C",
-        "D",
-        "D",
-        "C",
-        "C",
-        "Bb",
-        "A"
+  "pdf_output": "Persistent_Misconduct_Stories_We_Dont_Tell.pdf",
+  "midi_output": "Persistent_Misconduct_Stories_We_Dont_Tell.mid",
+  "tempo": 136,
+  "midi_duration": 4,
+  "midi_volume": 80,
+  "midi_chords": {
+    "D": [
+      50,
+      57,
+      62
     ],
-    "sections": [
-        {
-            "title": "Chorus (Relationships)",
-            "content": "Chorus Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: \u2193 \u2193 \u2191 \u2191 \u2193 \u2191\n\nPersistent misconduct, under love\u2019s disguise  \nIn silence we falter, avoiding each other's eyes  \nWords unspoken build this living shell  \nA house full of echoes\u2014stories we don\u2019t tell\n"
-        },
-        {
-            "title": "Verse (Relationships)",
-            "content": "Verse Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: \u2193 \u2193 \u2191 \u2191 \u2193 \u2191\n\nWe promised forever but spoke in delay  \nAvoiding the mess in the things we won\u2019t say  \nPride became silence, silence became a wall  \nThe louder we loved, the harder the fall\n\nD Major Chord\ne|-2-\nB|-3-\nG|-2-\nD|-0-\nA|---\nE|---\nC Major Chord\ne|-0-\nB|-1-\nG|-0-\nD|-2-\nA|-3-\nE|---\nBb Major Chord\ne|-1-\nB|-3-\nG|-3-\nD|-3-\nA|-1-\nE|-1-\nA Major Chord\ne|-0-\nB|-2-\nG|-2-\nD|-2-\nA|-0-\nE|---\n\n"
-        },
-        {
-            "title": "Chorus (Culture)",
-            "content": "Chorus Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: \u2193 \u2193 \u2191 \u2191 \u2193 \u2191\n\nPersistent misconduct, in the songs we sing  \nLegacies lost in the noise we bring  \nWe edit the truth like it never fell\u2014  \nThese borrowed traditions, stories we don\u2019t tell\n"
-        },
-        {
-            "title": "Verse (Culture)",
-            "content": "Verse Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: \u2193 \u2193 \u2191 \u2191 \u2193 \u2191\n\nWe dance to rhythms borrowed, tales retold  \nLost our roots while chasing gold  \nTraded our tongue for market spell  \nShallow pride\u2014stories we don\u2019t tell\n\nD Major Chord\ne|-2-\nB|-3-\nG|-2-\nD|-0-\nA|---\nE|---\nC Major Chord\ne|-0-\nB|-1-\nG|-0-\nD|-2-\nA|-3-\nE|---\nBb Major Chord\ne|-1-\nB|-3-\nG|-3-\nD|-3-\nA|-1-\nE|-1-\nA Major Chord\ne|-0-\nB|-2-\nG|-2-\nD|-2-\nA|-0-\nE|---\n\n"
-        },
-        {
-            "title": "Chorus (Politics)",
-            "content": "Chorus Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: \u2193 \u2193 \u2191 \u2191 \u2193 \u2191\n\nPersistent misconduct, behind every suit and tie  \nDeals in the dark while the poor scrape by  \nWe pledge with hope but live in hell  \nUnderneath the anthem\u2014stories we don\u2019t tell\n"
-        },
-        {
-            "title": "Verse (Politics)",
-            "content": "Verse Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: \u2193 \u2193 \u2191 \u2191 \u2193 \u2191\n\nThey smile on screens, pretend to care  \nWhile hunger lingers in the midnight air  \nOne hand signs while the other rebels  \nJustice blindfolded\u2014stories we don\u2019t tell\n\nD Major Chord\ne|-2-\nB|-3-\nG|-2-\nD|-0-\nA|---\nE|---\nC Major Chord\ne|-0-\nB|-1-\nG|-0-\nD|-2-\nA|-3-\nE|---\nBb Major Chord\ne|-1-\nB|-3-\nG|-3-\nD|-3-\nA|-1-\nE|-1-\nA Major Chord\ne|-0-\nB|-2-\nG|-2-\nD|-2-\nA|-0-\nE|---\n\n"
-        },
-        {
-            "title": "Bridge Section",
-            "content": "Bridge Progression: Bm - G - D - A - Bm - G - Bb - A\nStrumming Pattern: \u2193 \u2193 \u2191 \u2191 \u2193 \u2191\n\nIn the quiet corners, secrets learned to grow  \nIn stories never spoken, there\u2019s more than we let show  \nWe dressed our pain in patience, called it something wise  \nBut every silent witness wears the same disguise\u2026\n\nBm Chord\ne|-2-\nB|-3-\nG|-4-\nD|-4-\nA|-2-\nE|---\nG Major Chord\ne|-3-\nB|-3-\nG|-0-\nD|-0-\nA|-2-\nE|-3-\nD Major Chord\ne|-2-\nB|-3-\nG|-2-\nD|-0-\nA|---\nE|---\nA Major Chord\ne|-0-\nB|-2-\nG|-2-\nD|-2-\nA|-0-\nE|---\nBb Major Chord\ne|-1-\nB|-3-\nG|-3-\nD|-3-\nA|-1-\nE|-1-\n\n"
-        }
+    "C": [
+      48,
+      55,
+      60
+    ],
+    "Bb": [
+      46,
+      53,
+      58
+    ],
+    "A": [
+      45,
+      52,
+      57
+    ],
+    "Bm": [
+      47,
+      54,
+      59
+    ],
+    "G": [
+      43,
+      50,
+      55
     ]
+  },
+  "midi_progression": [
+    "D",
+    "D",
+    "C",
+    "C",
+    "D",
+    "D",
+    "C",
+    "C",
+    "Bb",
+    "A"
+  ],
+  "sections": [
+    {
+      "title": "Chorus (Relationships)",
+      "content": "Chorus Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: ↓ ↓ ↑ ↑ ↓ ↑\n\nPersistent misconduct, under love’s disguise  \nIn silence we falter, avoiding each other's eyes  \nWords unspoken build this living shell  \nA house full of echoes—stories we don’t tell\n",
+      "progression": null,
+      "lyrics": null,
+      "strumming_pattern": null
+    },
+    {
+      "title": "Verse (Relationships)",
+      "content": "Verse Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: ↓ ↓ ↑ ↑ ↓ ↑\n\nWe promised forever but spoke in delay  \nAvoiding the mess in the things we won’t say  \nPride became silence, silence became a wall  \nThe louder we loved, the harder the fall\n\nD Major Chord\ne|-2-\nB|-3-\nG|-2-\nD|-0-\nA|---\nE|---\nC Major Chord\ne|-0-\nB|-1-\nG|-0-\nD|-2-\nA|-3-\nE|---\nBb Major Chord\ne|-1-\nB|-3-\nG|-3-\nD|-3-\nA|-1-\nE|-1-\nA Major Chord\ne|-0-\nB|-2-\nG|-2-\nD|-2-\nA|-0-\nE|---\n\n",
+      "progression": null,
+      "lyrics": null,
+      "strumming_pattern": null
+    },
+    {
+      "title": "Chorus (Culture)",
+      "content": "Chorus Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: ↓ ↓ ↑ ↑ ↓ ↑\n\nPersistent misconduct, in the songs we sing  \nLegacies lost in the noise we bring  \nWe edit the truth like it never fell—  \nThese borrowed traditions, stories we don’t tell\n",
+      "progression": null,
+      "lyrics": null,
+      "strumming_pattern": null
+    },
+    {
+      "title": "Verse (Culture)",
+      "content": "Verse Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: ↓ ↓ ↑ ↑ ↓ ↑\n\nWe dance to rhythms borrowed, tales retold  \nLost our roots while chasing gold  \nTraded our tongue for market spell  \nShallow pride—stories we don’t tell\n\nD Major Chord\ne|-2-\nB|-3-\nG|-2-\nD|-0-\nA|---\nE|---\nC Major Chord\ne|-0-\nB|-1-\nG|-0-\nD|-2-\nA|-3-\nE|---\nBb Major Chord\ne|-1-\nB|-3-\nG|-3-\nD|-3-\nA|-1-\nE|-1-\nA Major Chord\ne|-0-\nB|-2-\nG|-2-\nD|-2-\nA|-0-\nE|---\n\n",
+      "progression": null,
+      "lyrics": null,
+      "strumming_pattern": null
+    },
+    {
+      "title": "Chorus (Politics)",
+      "content": "Chorus Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: ↓ ↓ ↑ ↑ ↓ ↑\n\nPersistent misconduct, behind every suit and tie  \nDeals in the dark while the poor scrape by  \nWe pledge with hope but live in hell  \nUnderneath the anthem—stories we don’t tell\n",
+      "progression": null,
+      "lyrics": null,
+      "strumming_pattern": null
+    },
+    {
+      "title": "Verse (Politics)",
+      "content": "Verse Progression: D - D - C - C - D - D - C - C - Bb - A\nStrumming Pattern: ↓ ↓ ↑ ↑ ↓ ↑\n\nThey smile on screens, pretend to care  \nWhile hunger lingers in the midnight air  \nOne hand signs while the other rebels  \nJustice blindfolded—stories we don’t tell\n\nD Major Chord\ne|-2-\nB|-3-\nG|-2-\nD|-0-\nA|---\nE|---\nC Major Chord\ne|-0-\nB|-1-\nG|-0-\nD|-2-\nA|-3-\nE|---\nBb Major Chord\ne|-1-\nB|-3-\nG|-3-\nD|-3-\nA|-1-\nE|-1-\nA Major Chord\ne|-0-\nB|-2-\nG|-2-\nD|-2-\nA|-0-\nE|---\n\n",
+      "progression": null,
+      "lyrics": null,
+      "strumming_pattern": null
+    },
+    {
+      "title": "Bridge Section",
+      "content": "Bridge Progression: Bm - G - D - A - Bm - G - Bb - A\nStrumming Pattern: ↓ ↓ ↑ ↑ ↓ ↑\n\nIn the quiet corners, secrets learned to grow  \nIn stories never spoken, there’s more than we let show  \nWe dressed our pain in patience, called it something wise  \nBut every silent witness wears the same disguise…\n\nBm Chord\ne|-2-\nB|-3-\nG|-4-\nD|-4-\nA|-2-\nE|---\nG Major Chord\ne|-3-\nB|-3-\nG|-0-\nD|-0-\nA|-2-\nE|-3-\nD Major Chord\ne|-2-\nB|-3-\nG|-2-\nD|-0-\nA|---\nE|---\nA Major Chord\ne|-0-\nB|-2-\nG|-2-\nD|-2-\nA|-0-\nE|---\nBb Major Chord\ne|-1-\nB|-3-\nG|-3-\nD|-3-\nA|-1-\nE|-1-\n\n",
+      "progression": null,
+      "lyrics": null,
+      "strumming_pattern": null
+    }
+  ],
+  "title": null,
+  "composer": null,
+  "key": null,
+  "meter": null,
+  "unit_note_length": null,
+  "abc_notation": null
 }

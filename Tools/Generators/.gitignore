@@ -1,4 +1,6 @@
-./json
-./build
-./output
-./.vscode
+json
+build
+output
+.venv
+bin
+lib
