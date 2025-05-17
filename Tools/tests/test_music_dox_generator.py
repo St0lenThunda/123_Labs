@@ -201,6 +201,7 @@ class TestMusicDoxGeneratorCombined(unittest.TestCase):
         self.assertTrue(self.is_valid_musicxml(xml_path), msg="Invalid or missing MusicXML output.")
 
     def test_all_json_files_in_directory(self):
+        # TODO: Add automated fix and retest
         """
         Test all JSON files in the Generators/json directory for standard compliance and report on each.
         Prints the full path to any missing nested field.

@@ -93,5 +93,6 @@
   "key": null,
   "meter": null,
   "unit_note_length": null,
-  "abc_notation": null
+  "abc_notation": null,
+  "__exception__": null
 }

@@ -10,6 +10,25 @@ def load_validation_results():
     with open(VALIDATION_RESULTS_PATH, 'r', encoding='utf-8') as f:
         return json.load(f)
 
+def guess_stub_value(field_path, value):
+    # Use the field name to guess if it should be a list, dict, or None
+    # If the stub is None, but the field name suggests a list or dict, use that
+    list_like = ["progression", "lyrics", "strumming_pattern", "sections", "chords"]
+    dict_like = ["abc_notation", "midi_chords"]
+    # Special case for composer
+    if field_path.endswith("composer"):
+        return "Stolen Thunda"
+    # If the stub is already a list or dict, keep it
+    if isinstance(value, (list, dict)):
+        return value
+    # Guess by field name
+    for part in reversed(field_path.split('.')):
+        if any(part.startswith(name) for name in list_like):
+            return []
+        if any(part.startswith(name) for name in dict_like):
+            return {}
+    return None
+
 def set_nested_field(obj, field_path, value):
     """
     Set a nested field in a dict/list structure given a dotted path with optional [index] for lists.
@@ -85,7 +104,8 @@ def update_json_files():
                             break
                         curr = curr[key]
                 if not exists or curr is None:
-                    set_nested_field(data, field_path, value)
+                    stub = guess_stub_value(field_path, value)
+                    set_nested_field(data, field_path, stub)
                     changed = True
             except Exception as e:
                 print(f"Error setting {field_path} in {filename}: {e}")

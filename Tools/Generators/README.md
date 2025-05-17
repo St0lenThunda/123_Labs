@@ -1,7 +1,7 @@
 # 🎸 PDF & MID & ABC Notation Generator 🎼  
-**A** command-line Python tool to generate a **Guitar Chord Progression PDF**, **MIDI file**, and **ABC notation** from structured JSON input.
+**A** command-line Python tool to generate a **Guitar Chord Progression PDF**, **MIDI file**, **ABC notation**, and **MusicXML** from structured JSON input.
 
-> Built with ❤️ using [`fpdf`](https://pyfpdf.github.io/fpdf2/) and [`midiutil`](https://github.com/MarkCWirt/MIDIUtil)
+> Built with ❤️ using [`fpdf`](https://pyfpdf.github.io/fpdf2/), [`midiutil`](https://github.com/MarkCWirt/MIDIUtil), and MusicXML standards.
 
 ---
 
@@ -17,9 +17,11 @@ pip install fpdf midiutil
 ```bash
 python music_dox_generator.py [json_file1.json json_file2.json ...] [--json_dir PATH] [--output_dir PATH]
 ```
-### 🎯 Positional Arguments:
-  ```json_file1.json json_file2.json ...``` 
-  - The path(s) to one or more JSON files that contain your song data.
+
+### 🎯 Interactive & Batch Processing
+- If you do **not** specify any JSON files, the script will prompt you to:
+  1. Enter file names (comma-separated), **or**
+  2. Process **ALL** JSON files in the selected directory (with confirmation).
 
 ### ⚙️ Optional Flags:
 | Flag           | Description                                                                  |
@@ -32,27 +34,48 @@ python music_dox_generator.py [json_file1.json json_file2.json ...] [--json_dir 
 ### 📁 JSON Format Example
 ```json
 {
+  "title": "Build or Destroy",
+  "composer": "Stolen Thunda",
   "tempo": 120,
   "midi_duration": 4,
   "midi_volume": 80,
   "midi_chords": {
-    "F": [53, 57, 60],
-    "G": [55, 59, 62],
-    "Am": [57, 60, 64],
-    "C": [60, 64, 67]
+    "D": [62, 66, 69],
+    "C": [60, 64, 67],
+    "Bb": [58, 62, 65],
+    "A": [57, 61, 64]
   },
-  "midi_progression": ["F", "G", "Am", "C"],
+  "midi_progression": ["D", "C", "Bb", "A", "D", "C", "Bb", "A", "D"],
   "sections": [
     {
-      "title": "Chorus Section",
-      "content": "Chorus Progression: F - G - Am - C\nStrumming Pattern: D D U D U D - U\n\n..."
+      "title": "Verse 1: Relationship",
+      "content": "...",
+      "progression": ["D", "C", "Bb", "A", "D", "C", "Bb", "A"],
+      "lyrics": ["You always said we’d work it out,", ...],
+      "strumming_pattern": ["↓(rake) ↓ ↑ ↓(rake) ↑ ↓ ↑"]
     }
-  ]
+  ],
+  "abc_notation": {
+    "reference_number": 1,
+    "title": "Build or Destroy",
+    "composer": "Stolen Thunda",
+    "meter": "4/4",
+    "unit_note_length": "1/8",
+    "tempo": "1/4=120",
+    "key": "C",
+    "sections": [
+      {
+        "title": "Verse 1: Relationship",
+        "chords": ["D", "C", "Bb", "A", "D", "C", "Bb", "A"],
+        "lyrics": ["You always said we’d work it out,", ...]
+      }
+    ]
+  }
 }
 ```
 
 ### 🧪 Examples
-✅ Generate PDF, MIDI, and ABC notation from one file (default output directory):
+✅ Generate PDF, MIDI, ABC notation, and MusicXML from one file (default output directory):
 - Default Verbosity (INFO):
 ```bash
 python music_dox_generator.py ./json/my_song.json
@@ -101,11 +124,13 @@ output/
 ├── song_20250514_154500/
 │   ├── my_song_Guitar_Progression.pdf
 │   ├── my_song_Chorus.mid
-│   └── my_song.abc
+│   ├── my_song.abc
+│   └── my_song.musicxml
 ├── song_20250514_154600/
 │   ├── another_song_Guitar_Progression.pdf
 │   ├── another_song_Chorus.mid
-│   └── another_song.abc
+│   ├── another_song.abc
+│   └── another_song.musicxml
 ```
 
 ---
@@ -114,6 +139,7 @@ output/
 - 🎵 Generates a MIDI file with chord progressions.
 - 📝 Creates a printable PDF with chord diagrams and strumming patterns.
 - 🎼 Generates ABC notation for the song.
+- 🎶 Generates MusicXML for full score.
 - ✨ ASCII-safe formatting ensures compatibility.
 - 🔍 The script supports tab completion for file paths when entering input interactively. This feature is enabled using the `readline` module.
 - 🧩 Designed to support modular updates and flexible structures.
@@ -125,6 +151,11 @@ output/
 The script validates all file paths to prevent path traversal attacks.
 Only files within the specified `--json_dir` are allowed.
 Invalid paths (e.g., `../outside_dir/file.json`) will raise an error.
+
+---
+
+### 🧹 Automated JSON Fixing
+A script (`tests/auto_fix_json_fields.py`) is provided to automatically populate missing fields in your JSON files (e.g., set `composer` to `Stolen Thunda`, ensure lists/dicts are not null). This helps ensure all files pass validation and are compatible with the generator.
 
 ---
 

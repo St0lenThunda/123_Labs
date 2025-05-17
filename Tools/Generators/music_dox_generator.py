@@ -71,17 +71,18 @@ class PDF(FPDF):
 
 def generate_pdf(song_data, output_path):
     try:
-        # Use song_data fields directly, or build content from sections if needed
         content = ""
-        if "sections" in song_data:
-            for section in song_data["sections"]:
+        sections = song_data.get("sections") or []
+        if sections:
+            for section in sections:
+                if section is None:
+                    continue
                 content += f"Section: {section.get('title', '')}\n"
-                content += f"Progression: {section.get('progression', [])}\n"
-                content += f"Lyrics: {section.get('lyrics', [])}\n"
-                content += f"Strumming Pattern: {section.get('strumming_pattern', '')}\n\n"
+                content += f"Progression: {section.get('progression') or []}\n"
+                content += f"Lyrics: {section.get('lyrics') or []}\n"
+                content += f"Strumming Pattern: {section.get('strumming_pattern') or ''}\n\n"
         else:
             content = str(song_data)
-
         pdf = PDF()
         pdf.add_page()
         pdf.chapter_body(content)
@@ -92,29 +93,30 @@ def generate_pdf(song_data, output_path):
 
 def generate_midi(song_data, output_path):
     try:
-        # Build midi_progression from song_data if not present
         midi_progression = []
-        if "sections" in song_data and "midi_chords" in song_data:
-            for section in song_data["sections"]:
-                for chord in section.get("progression", []):
-                    midi_progression.append(song_data["midi_chords"].get(chord, []))
+        sections = song_data.get("sections") or []
+        midi_chords = song_data.get("midi_chords") or {}
+        if sections and midi_chords:
+            for section in sections:
+                if section is None:
+                    continue
+                for chord_name in section.get("progression") or []:
+                    midi_progression.append(midi_chords.get(chord_name, []))
         else:
-            midi_progression = song_data.get("midi_progression", [])
-
+            midi_progression = song_data.get("midi_progression") or []
         mf = MIDIFile(1)
         track = 0
         time = 0
         mf.addTrackName(track, time, "Chords")
-        mf.addTempo(track, time, song_data["tempo"])
-
-        duration_val = song_data["midi_duration"]
-        volume = song_data["midi_volume"]
-
+        mf.addTempo(track, time, song_data.get("tempo", 120))
+        duration_val = song_data.get("midi_duration", 1)
+        volume = song_data.get("midi_volume", 100)
         for chord_notes in midi_progression:
+            if chord_notes is None:
+                continue
             for note_val in chord_notes:
                 mf.addNote(track, 0, note_val, time, duration_val, volume)
             time += duration_val
-
         with open(output_path, "wb") as f:
             mf.writeFile(f)
         logging.info(f"MIDI saved to {output_path}")
@@ -123,83 +125,66 @@ def generate_midi(song_data, output_path):
 
 def generate_musicxml(song_data, output_path):
     try:
-        chord_notes = song_data.get("midi_chords", {})
-
+        chord_notes = song_data.get("midi_chords") or {}
         score = stream.Score()
         score.insert(0, metadata.Metadata())
         score.metadata.title = song_data.get("title", "Untitled")
         score.append(tempo.MetronomeMark(number=song_data.get("tempo", 120)))
         score.append(meter.TimeSignature('4/4'))
         score.append(key.KeySignature(0))
-
         part = stream.Part()
         measure_num = 1
-
-        for section in song_data.get("sections", []):
-            lyrics_lines = section.get("lyrics", [])
-            progression = section.get("progression", [])
+        sections = song_data.get("sections") or []
+        for section in sections:
+            if section is None:
+                continue
+            lyrics_lines = section.get("lyrics") or []
+            progression = section.get("progression") or []
             lyric_idx = 0
-
             for chord_name in progression:
                 if chord_name in chord_notes:
                     chord_obj = chord.Chord(chord_notes[chord_name])
-                    chord_obj.quarterLength = 4  # Default duration for a chord
-
+                    chord_obj.quarterLength = 4
                     if lyric_idx < len(lyrics_lines):
                         chord_obj.addLyric(lyrics_lines[lyric_idx])
                         lyric_idx += 1
-
                     measure = stream.Measure(number=measure_num)
                     measure.append(chord_obj)
                     part.append(measure)
                     measure_num += 1
-
         score.append(part)
         score.write("musicxml", fp=output_path)
         logging.info(f"MusicXML saved to {output_path}")
     except Exception as e:
         logging.error(f"Failed to generate MusicXML: {e}")
 
-
 def generate_abc(song_data, output_path):
     try:
-        # Extract song metadata
-        reference_number = song_data.get("abc_notation", {}).get("reference_number", 1)
-        title = song_data.get("abc_notation", {}).get("title", "Untitled")
-        composer = song_data.get("abc_notation", {}).get("composer", "Unknown")
-        meter = song_data.get("abc_notation", {}).get("meter", "4/4")
-        unit_note_length = song_data.get("abc_notation", {}).get("unit_note_length", "1/8")
-        tempo = song_data.get("abc_notation", {}).get("tempo", "1/4=120")
-        key = song_data.get("abc_notation", {}).get("key", "C")
-
-        # Start building the ABC notation
+        abc_notation = song_data.get("abc_notation") or {}
+        reference_number = abc_notation.get("reference_number", 1)
+        title = abc_notation.get("title", "Untitled")
+        composer = abc_notation.get("composer", "Unknown")
+        meter_val = abc_notation.get("meter", "4/4")
+        unit_note_length = abc_notation.get("unit_note_length", "1/8")
+        tempo_val = abc_notation.get("tempo", "1/4=120")
+        key_val = abc_notation.get("key", "C")
         abc_lines = [
             f"X:{reference_number}",
             f"T:{title}",
             f"C:{composer}",
-            f"M:{meter}",
+            f"M:{meter_val}",
             f"L:{unit_note_length}",
-            f"Q:{tempo}",
-            f"K:{key}",
+            f"Q:{tempo_val}",
+            f"K:{key_val}",
         ]
-
-        # Process each section
-        for section in song_data.get("abc_notation", {}).get("sections", []):
-            # Add section title as a comment
-            abc_lines.append(f"%% {section['title']}")
-
-            # Add chords
-            chords_line = " ".join([f"[{chord}]" for chord in section.get("chords", [])])
+        for section in abc_notation.get("sections") or []:
+            if section is None:
+                continue
+            abc_lines.append(f"%% {section.get('title', '')}")
+            chords_line = " ".join([f"[{ch}]" for ch in section.get("chords") or []])
             abc_lines.append(chords_line)
-
-            # Add lyrics
-            lyrics_lines = " | ".join(section.get("lyrics", []))
+            lyrics_lines = " | ".join(section.get("lyrics") or [])
             abc_lines.append(f"w: {lyrics_lines}")
-
-            # Add a blank line for separation
-            # abc_lines.append("")
-
-        # Write the ABC notation to the output file
         with open(output_path, "w") as f:
             f.write("\n".join(abc_lines))
         logging.info(f"ABC notation saved to {output_path}")
@@ -247,11 +232,23 @@ if __name__ == "__main__":
         print("Available JSON files:")
         for file in json_files:
             print(f" - {file}")
-        selected = input("Enter JSON files (comma-separated): ")
-        args.json_files = [
-            os.path.abspath(f.strip()) if os.path.isabs(f.strip()) else os.path.normpath(os.path.join(args.json_dir, f.strip()))
-            for f in selected.split(",")
-        ]
+        print("Options:")
+        print("  [1] Enter file names (comma-separated)")
+        print("  [2] Process ALL files in the directory")
+        choice = input("Choose an option [1/2]: ").strip()
+        if choice == '2':
+            confirm = input(f"Are you sure you want to process ALL {len(json_files)} files in '{args.json_dir}'? (y/n): ").strip().lower()
+            if confirm == 'y':
+                args.json_files = [os.path.join(args.json_dir, f) for f in json_files]
+            else:
+                print("Aborted.")
+                exit(0)
+        else:
+            selected = input("Enter JSON files (comma-separated): ")
+            args.json_files = [
+                os.path.abspath(f.strip()) if os.path.isabs(f.strip()) else os.path.normpath(os.path.join(args.json_dir, f.strip()))
+                for f in selected.split(",")
+            ]
 
     # Process each JSON file
     for json_file in args.json_files:
